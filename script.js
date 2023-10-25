@@ -76,13 +76,13 @@ function asvInit() {
             transitionIndex = swiper.clickedIndex;
           }
           transitionImage.classList.add('transition_image_' + transitionIndex.toString());
-          // Pre-collapse carousel update
+          // Collapsing begins
+          transitionImage.setAttribute('collapsing', '');
+          // Collapse carousel update
           swiper.params.slidesPerView = 7;
           galleryContainer.classList.replace('expanded', 'collapsed');
           swiper.update();
           swiper.slideTo(swiper.clickedIndex-transitionIndex, 0, false);
-          // Collapsing begins
-          transitionImage.setAttribute('collapsing', '');
           // Post-collapse remove transition image
           transitionImage.addEventListener('animationend', () => {
             transitionImage.removeAttribute('collapsing');
