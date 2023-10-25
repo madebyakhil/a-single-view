@@ -38,6 +38,7 @@ function asvInit() {
       galleryItemLink.addEventListener('click', function(event) {
         // Transition image
         const transitionImage = galleryItemLink.querySelector('img').cloneNode();
+        transitionImage.removeAttribute('loading');
         transitionFigure.appendChild(transitionImage);
         transitionFigure.classList.toggle('active');
         // Expand Carousel
