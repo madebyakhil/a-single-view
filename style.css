@@ -148,9 +148,13 @@ body {
 	cursor:zoom-out;
 }
 .gallery_list img {
+	width:auto;
 	height:100%;
 	display:block;
 	transition:transform ease 300ms;
+}
+.gallery_container:hover .gallery_list img {
+	will-change:transform;
 }
 
 .expanded .swiper-slide-active figcaption {
@@ -232,6 +236,9 @@ button[disabled] {
 /*	transition:mask-position cubic-bezier(0.75, 0, 0.25, 1) 300ms, mask-size cubic-bezier(0.75, 0, 0.25, 1) 300ms;*/
 	mask:linear-gradient(#000 0 0) var(--mask-position)/14.286% 100% no-repeat;
 	animation:mask-expand 300ms cubic-bezier(0.75, 0, 0.25, 1) forwards;
+}
+.gallery_container:hover + .transition_figure img {
+	will-change:mask-size;
 }
 .transition_figure img[collapsing] {
 	animation:mask-collapse 300ms cubic-bezier(0.75, 0, 0.25, 1) forwards;
