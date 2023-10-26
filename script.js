@@ -16,10 +16,10 @@ function asvInit() {
       keyboard: {
         enabled: true,
       },
-      freeMode: {
+      /*freeMode: {
         enabled: true,
         sticky : true,
-      },
+      },*/
 
       // Navigation arrows
       navigation: {
