@@ -9,7 +9,7 @@ function asvInit() {
       speed: 300,
       slidesPerView: 7,
       spaceBetween: 1,
-
+      watchSlidesProgress: true,
       mousewheel: {
         forceToAxis: true,
       },
@@ -38,7 +38,7 @@ function asvInit() {
       galleryItemLink.addEventListener('click', function(event) {
         // Transition image
         const transitionImage = galleryItemLink.querySelector('img').cloneNode();
-        transitionImage.removeAttribute('loading');
+        transitionImage.setAttribute('loading', 'eager');
         transitionFigure.appendChild(transitionImage);
         transitionFigure.classList.toggle('active');
         // Expand Carousel
@@ -79,10 +79,12 @@ function asvInit() {
           // Collapsing begins
           transitionImage.setAttribute('collapsing', '');
           // Collapse carousel update
-          swiper.params.slidesPerView = 7;
-          galleryContainer.classList.replace('expanded', 'collapsed');
-          swiper.update();
-          swiper.slideTo(swiper.clickedIndex-transitionIndex, 0, false);
+          transitionImage.addEventListener('load', () => {
+            swiper.params.slidesPerView = 7;
+            galleryContainer.classList.replace('expanded', 'collapsed');
+            swiper.update();
+            swiper.slideTo(swiper.clickedIndex-transitionIndex, 0, false);
+          }, {once: true});
           // Post-collapse remove transition image
           transitionImage.addEventListener('animationend', () => {
             transitionImage.removeAttribute('collapsing');
