@@ -34,12 +34,13 @@ function asvInit() {
     const galleryContainer = document.querySelector('.gallery_container');
     const transitionFigure = document.querySelector('.transition_figure');
     let transitionIndex;
-    galleryItemLinks.forEach((galleryItemLink) => {      
+    galleryItemLinks.forEach((galleryItemLink) => {
       galleryItemLink.addEventListener('click', function(event) {
         // Transition image
-        const transitionImage = galleryItemLink.querySelector('img').cloneNode();
+        const transitionPicture = galleryItemLink.querySelector('picture').cloneNode(true);
+        const transitionImage = transitionPicture.querySelector('img');
         transitionImage.setAttribute('loading', 'eager');
-        transitionFigure.appendChild(transitionImage);
+        transitionFigure.appendChild(transitionPicture);
         transitionFigure.classList.toggle('active');
         // Expand Carousel
         if ( galleryContainer.classList.contains('collapsed') ) {
@@ -59,7 +60,7 @@ function asvInit() {
             //  Remove transition image
             setTimeout(() => {
               transitionImage.removeAttribute('expanding');
-              transitionFigure.removeChild(transitionImage);
+              transitionFigure.removeChild(transitionPicture);
               transitionFigure.classList.toggle('active');
             }, 300);
           }, {once: true});
@@ -88,18 +89,15 @@ function asvInit() {
           // Post-collapse remove transition image
           transitionImage.addEventListener('animationend', () => {
             transitionImage.removeAttribute('collapsing');
-            transitionFigure.removeChild(transitionImage);
+            transitionFigure.removeChild(transitionPicture);
             transitionFigure.classList.toggle('active');
           }, {once: true});
         }
         event.preventDefault();
       });
-    });
+    }); // Expand & Collapse Carousel
 
   } // carousel
-  document.querySelector('.transition_figure').addEventListener('click', function(event) {
-    // this.classList.toggle('active');
-  });
 } // asvInit
 
 if (document.readyState === 'loading') {  // Loading hasn't finished yet
