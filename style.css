@@ -141,7 +141,8 @@ body {
 .collapsed .swiper-slide-visible .gallery_item_link {
 	transition:filter 300ms cubic-bezier(0.2, 0, 0.75, 1);
 }
-.collapsed .gallery_item_link:hover {
+.collapsed .gallery_item_link:hover,
+.collapsed .gallery_item_link:focus {
 	filter:brightness(70%);
 }
 .expanded .gallery_item_link {
@@ -153,12 +154,8 @@ body {
 	display:block;
 }
 
-.expanded .swiper-slide-active figcaption {
-/*	display:flex;*/
-/*	opacity:1;*/
-}
 .collapsed .swiper-slide-visible img {
-	transition:transform ease 300ms;
+	transition:transform 300ms ease;
 	will-change:transform;
 }
 .collapsed .swiper-slide-next img {
