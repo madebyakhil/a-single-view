@@ -142,7 +142,7 @@ body {
 	transition:filter 300ms cubic-bezier(0.2, 0, 0.75, 1);
 }
 .collapsed .gallery_item_link:hover,
-.collapsed .gallery_item_link:focus {
+.collapsed .gallery_item_link:focus-visible {
 	filter:brightness(70%);
 }
 .expanded .gallery_item_link {
@@ -152,6 +152,8 @@ body {
 	width:auto;
 	height:100%;
 	display:block;
+	content-visibility:auto;
+	contain-intrinsic-size:710px 947px;
 }
 
 .collapsed .swiper-slide-visible img {
