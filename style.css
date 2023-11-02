@@ -195,6 +195,7 @@ button {
 	padding:0;
 	margin:0;
 	-webkit-appearance:none;
+	-webkit-tap-highlight-color:transparent;
 	cursor:pointer;
 }
 button[disabled] {
@@ -207,24 +208,40 @@ button[disabled] {
 	top:-2rem;
 	white-space:nowrap;
 }
-.swiper-button-next:not([disabled])::before,
-.swiper-button-prev:not([disabled])::before {
+.swiper-button-next::before,
+.swiper-button-prev::before,
+.swiper-button-next::after,
+.swiper-button-prev::after {
 	content:'';
 	position:absolute;
 	top:50%;
 	left:50%;
 	width:2.25rem;
 	height:2.25rem;
-	border:1px solid var(--fg);
 	border-radius:100%;
-	transform:translate(-50%, -50%) scale(0.65);
 	opacity:0;
 	transition:opacity cubic-bezier(0.75, 0, 0.25, 1) 300ms, transform cubic-bezier(0.75, 0, 0.25, 1) 300ms;
 }
-.swiper-button-next:not([disabled]):focus-visible::before,
-.swiper-button-prev:not([disabled]):focus-visible::before {
+.swiper-button-next::before,
+.swiper-button-prev::before {
+	border:1px solid var(--fg);
+	transform:translate(-50%, -50%) scale(0.65);
+	transition:opacity cubic-bezier(0.75, 0, 0.25, 1) 300ms, transform cubic-bezier(0.75, 0, 0.25, 1) 300ms;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+	background-color:var(--fg);
+	transform:translate(-50%, -50%);
+	transition:opacity cubic-bezier(0.75, 0, 0.25, 1) 100ms;
+}
+.swiper-button-next:focus-visible::before,
+.swiper-button-prev:focus-visible::before {
 	transform:translate(-50%, -50%) scale(1);
 	opacity:0.5;
+}
+.swiper-button-next:active::after,
+.swiper-button-prev:active::after {
+	opacity:0.1;
 }
 .swiper-button-next {
 	right:0;
@@ -350,15 +367,16 @@ button[disabled] {
 		left:unset;
 		padding-right:2rem;
 	}
-	.swiper-button-next:not([disabled])::before,
-	.swiper-button-prev:not([disabled])::before {
+	.swiper-button-next::before,
+	.swiper-button-next::after {
 		width:3rem;
 		height:3rem;
-	}
-	.swiper-button-next:not([disabled])::before {
 		left:calc(50% + 1rem);
 	}
-	.swiper-button-prev:not([disabled])::before {
+	.swiper-button-prev::before,
+	.swiper-button-prev::after {
+		width:3rem;
+		height:3rem;
 		left:calc(50% - 1rem);
 	}
 }
