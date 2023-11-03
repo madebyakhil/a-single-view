@@ -1,1 +1,1 @@
-<svg fill="none" height="260" viewBox="0 0 260 260" width="260" xmlns="http://www.w3.org/2000/svg"><path d="m0 0h260v260h-260z" fill="#f5efe7"/><path d="m71 51h118v157h-118z" fill="#121419"/></svg>
+<svg fill="none" height="260" viewBox="0 0 260 260" width="260" xmlns="http://www.w3.org/2000/svg"><style>.fav { fill:#121419; } @media (prefers-color-scheme: dark) { .fav { fill:#F5EFE7; } }</style><path d="M0,0v260h260V0H0z M189,208H71V51h118V208z" class="fav"/></svg>
