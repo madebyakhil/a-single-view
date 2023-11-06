@@ -33,16 +33,15 @@ header, section, footer, aside, nav, main, article, figure	{ display: block; }
 
 html { 
 	font-size:100%; /* 16px */
+	height:100%;
 	scroll-behavior:smooth;
 }
 body {
 	--fg:#121419;
 	--bg:#F5EFE7;
 }
-html, body { 
-	height:100%; 
-}
-body { 
+body {
+	min-height:100%;
 	font:400 1rem/150% 'Victor Mono', 'Courier New', Courier, monospace;
 	color:var(--fg);
 	background-color:var(--bg);
@@ -58,16 +57,17 @@ body {
 	height:var(--height);*/
 	--width:calc(100vw - 1rem);
 	width:var(--width);
-	height:calc(var(--width) * 1.333);
+	height:100%;
 	margin:0 auto;
 	position:relative;
 }
 .page_header {
 	width:100%;
-	position:absolute;
+	padding:0.787rem 0 0.824rem;
+	/*position:absolute;
 	top:-3.188rem;
 	left:0;
-	right:unset;
+	right:unset;*/
 }
 .page_title {
 	font-size:1rem;
@@ -83,7 +83,8 @@ body {
 	line-height:1rem;
 }
 .gallery_container {
-	height:100%;
+/*	height:100%;*/
+	height:calc(var(--width) * 1.333);
 	overflow:hidden;
 	padding-bottom:4rem;
 }
@@ -206,7 +207,7 @@ button[disabled] {
 .swiper-button-next,
 .swiper-button-prev {
 	position:absolute;
-	top:-2rem;
+	top:2rem;
 	white-space:nowrap;
 }
 .swiper-button-next::before,
@@ -254,9 +255,9 @@ button[disabled] {
 
 .transition_figure {
 	position:absolute;
-	top:0;
+	top:4rem;
 	right:0;
-	bottom:0;
+	bottom:4rem;
 	left:0;
 	overflow:hidden;
 	display:none;
@@ -342,6 +343,8 @@ button[disabled] {
 	.wrapper {
 		--height:calc(100vh - 8rem);
 		width:calc(var(--height) * 0.75);
+	}
+	.gallery_container {
 		height:var(--height);
 	}
 }
@@ -390,12 +393,18 @@ button[disabled] {
 	html { 
 		font-size:112.5%; /* 18px */
 	}
+	.wrapper {
+		margin-top:4rem;
+	}
 	.page_header {
+		position:absolute;
 		top:0;
 		right:100%;
-		left:unset;
-		padding-right:2rem;
+		padding:0 2rem 0 0;
 		text-align:right;
+	}
+	.transition_figure {
+		top:0;
 	}
 }
 @media only screen and (min-width:641px) {
