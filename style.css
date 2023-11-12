@@ -403,6 +403,10 @@ button[disabled] {
 		padding:0 2rem 0 0;
 		text-align:right;
 	}
+	.swiper-button-next,
+	.swiper-button-prev {
+		margin-top:-2rem;
+	}
 	.transition_figure {
 		top:0;
 	}
