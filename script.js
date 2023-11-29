@@ -20,6 +20,9 @@ function asvInit() {
         enabled: true,
         sticky : true,
       },
+      a11y: {
+        slideRole: null,
+      },
 
       // Navigation arrows
       navigation: {
