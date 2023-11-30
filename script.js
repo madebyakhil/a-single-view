@@ -13,6 +13,7 @@ function asvInit() {
       mousewheel: {
         forceToAxis: true,
       },
+      passiveListeners: true,
       keyboard: {
         enabled: true,
       },
